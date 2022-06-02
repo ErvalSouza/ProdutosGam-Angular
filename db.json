@@ -1,0 +1,6 @@
+{
+  "Produtos":[
+    {"id_produto":1,"no_produto":"Cadeira","cd_ean":11111111,"nm_valor":10, "nm_quantidade":10},
+    {"id_produto":2,"no_produto":"Mesa","cd_ean":11111111,"nm_valor":10, "nm_quantidade":10}
+  ]
+}

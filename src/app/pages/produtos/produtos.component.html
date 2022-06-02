@@ -1,0 +1,15 @@
+
+<button class="btn btn-outline-secondary mt-3" routerLink="novoproduto">Novo Produto</button>
+
+<div>
+  <h2 class="mt-2">Produtos</h2>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let produto of produtos">
+<span>Produto:</span> {{produto.no_produto}} <span>Valor:</span> {{produto.nm_valor | currency}}
+    </li>
+  </ul>
+</div>
+<div >
+</div>
+
+
