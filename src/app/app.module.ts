@@ -2,29 +2,36 @@ import { NovoProdutoComponent } from './pages/novo-produto/novo-produto.componen
 import { ProdutosComponent } from './pages/produtos/produtos.component';
 import { AppRoutingModule } from './app.routing.module';
 import { HomeComponent } from './pages/home/home.component';
-import { NgModule,LOCALE_ID,DEFAULT_CURRENCY_CODE } from '@angular/core';
+import { NgModule, LOCALE_ID, DEFAULT_CURRENCY_CODE } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import{HttpClientModule} from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { registerLocaleData } from '@angular/common';
-import localePt from '@angular/common/locales/pt'
-registerLocaleData(localePt,'pt')
+import localePt from '@angular/common/locales/pt';
+registerLocaleData(localePt, 'pt');
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
+import { MensagemComponent } from './components/mensagem/mensagem.component';
+import { EditProdutoComponent } from './components/edit-produto/edit-produto.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
-    AppComponent,HomeComponent,HeaderComponent,ProdutosComponent,NovoProdutoComponent
+    AppComponent,
+    HomeComponent,
+    HeaderComponent,
+    ProdutosComponent,
+    NovoProdutoComponent,
+    MensagemComponent,
+    EditProdutoComponent,
   ],
-  imports: [
-    BrowserModule,AppRoutingModule,HttpClientModule,FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, FontAwesomeModule],
   providers: [
-    {provide: LOCALE_ID, useValue: 'pt' },
-    {provide: DEFAULT_CURRENCY_CODE, useValue:'BRL'}
+    { provide: LOCALE_ID, useValue: 'pt' },
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

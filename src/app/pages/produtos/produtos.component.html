@@ -1,15 +1,30 @@
+<button class="btn btn-outline-primary mt-3" routerLink="novoproduto">
+  Novo Produto
+</button>
 
-<button class="btn btn-outline-secondary mt-3" routerLink="novoproduto">Novo Produto</button>
-
-<div>
+<div *ngIf="produtos.length > 0; else naoProdutos">
   <h2 class="mt-2">Produtos</h2>
   <ul class="list-group">
     <li class="list-group-item" *ngFor="let produto of produtos">
-<span>Produto:</span> {{produto.no_produto}} <span>Valor:</span> {{produto.nm_valor | currency}}
+      <span>Produto:</span> {{ produto.no_produto }} <span>Valor:</span>
+      {{ produto.nm_valor | currency }} <span>Quantidade:</span
+      >{{ produto.nm_quantidade }}
+      <span
+        ><a
+          routerLink="/produtos/edit/{{ produto.id }}"
+          class="btn btn-outline-primary"
+        >
+          <fa-icon [icon]="faEdit"></fa-icon> Editar Produto
+        </a>
+      </span>
+
+      <button class="btn btn-outline-danger" (click)="excluirProduto(produto.id!)">
+        <fa-icon [icon]="faTimes"></fa-icon> Excluir Produto
+      </button>
     </li>
   </ul>
 </div>
-<div >
-</div>
-
-
+<ng-template #naoProdutos>
+  <p>Não há produtos Cadastrados!</p>
+</ng-template>
+<div></div>

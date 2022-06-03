@@ -3,24 +3,48 @@
 <form (ngSubmit)="cadastrar()">
   <div class="form-row mt-2">
     <div class="col">
-      <input type="text" class="form-control" placeholder="Nome do Produto">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Nome do Produto"
+        [(ngModel)]="no_produto"
+        name="nomeProduto"
+      />
     </div>
 
     <div class="col mt-2">
-      <input type="number" class="form-control" placeholder="Valor">
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Valor"
+        [(ngModel)]="nm_valor"
+        name="valor"
+      />
     </div>
 
     <div class="col mt-2">
-      <input type="number" class="form-control" placeholder="Código de barras">
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Código de barras"
+        [(ngModel)]="cd_ean"
+        name="codigoBarras"
+      />
     </div>
     <div class="col mt-2">
-      <input type="number" class="form-control" placeholder="Quantidade">
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Quantidade"
+        [(ngModel)]="nm_quantidade"
+        name="quantidade"
+      />
     </div>
-
   </div>
 
   <div>
-    <button class="btn btn-outline-secondary mt-3" type="submit">Cadastrar</button>
-
+    <button class="btn btn-outline-secondary mt-3" type="submit">
+      Cadastrar
+    </button>
   </div>
 </form>

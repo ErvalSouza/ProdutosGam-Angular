@@ -1,7 +1,8 @@
 export interface Produto{
-  id_produto:number,
+  id?:number,
   no_produto:string,
-  cd_ean:number,
-  nm_valor:number,
-  nm_quantidade:number
+  cd_ean:number | string,
+  nm_valor:number | string,
+  nm_quantidade:number | string,
+
 }
