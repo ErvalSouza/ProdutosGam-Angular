@@ -11,11 +11,11 @@ export class MensagemService {
     this.mensagem = mensagem;
 
     setTimeout(() => {
-      // this.clear();
-    }, 5000);
+      this.clear();
+    }, 6000);
   }
 
-  // clear() {
-  //   this.mensagem = '';
-  // }
+  clear() {
+    this.mensagem = '';
+  }
 }

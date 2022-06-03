@@ -12,13 +12,16 @@
       <span
         ><a
           routerLink="/produtos/edit/{{ produto.id }}"
-          class="btn btn-outline-primary"
+          class="btn btn-outline-primary "
         >
           <fa-icon [icon]="faEdit"></fa-icon> Editar Produto
         </a>
       </span>
 
-      <button class="btn btn-outline-danger" (click)="excluirProduto(produto.id!)">
+      <button
+        class="btn btn-outline-danger "
+        (click)="excluirProduto(produto.id!)"
+      >
         <fa-icon [icon]="faTimes"></fa-icon> Excluir Produto
       </button>
     </li>

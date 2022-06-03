@@ -2,10 +2,10 @@
   "Produtos": [
     {
       "id": 1,
-      "no_produto": "computador",
-      "nm_valor": 1500,
-      "cd_ean": 121212,
-      "nm_quantidade": 1
+      "no_produto": "",
+      "nm_valor": "",
+      "cd_ean": "",
+      "nm_quantidade": ""
     }
   ]
 }
