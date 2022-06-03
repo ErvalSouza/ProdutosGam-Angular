@@ -9,6 +9,7 @@ import { MensagemService } from 'src/app/components/mensagem.service';
   styleUrls: ['./novo-produto.component.css'],
 })
 export class NovoProdutoComponent implements OnInit {
+
   id:number=0
   no_produto: string = '';
   nm_valor: string = '';

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 import { HttpClient } from '@angular/common/http';
 
@@ -9,7 +10,7 @@ import { Produto } from '../Produto';
   providedIn: 'root'
 })
 export class ProdutosService {
-
+  private baseApiUrl= environment.baseApiUrl
   private apiUrl='http://localhost:3000/produtos'
 
 
@@ -23,6 +24,11 @@ return this.http.post<Produto>(this.apiUrl, produto)
 deletarProduto(id:number){
 const url=`${this.apiUrl}/${id}`
 return this.http.delete(url)
+}
+
+editarProduto(id:number,produto:Produto ):Observable<Produto>{
+  const url=`${this.apiUrl}/${id}`
+  return this.http.put<Produto>(url,produto)
 }
 
   getTodos():Observable<Produto[]>{

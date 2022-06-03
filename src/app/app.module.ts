@@ -5,7 +5,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { NgModule, LOCALE_ID, DEFAULT_CURRENCY_CODE } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
@@ -16,6 +16,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { MensagemComponent } from './components/mensagem/mensagem.component';
 import { EditProdutoComponent } from './components/edit-produto/edit-produto.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ProdutoFormComponent } from './components/produto-form/produto-form.component';
 
 @NgModule({
   declarations: [
@@ -26,8 +27,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NovoProdutoComponent,
     MensagemComponent,
     EditProdutoComponent,
+    ProdutoFormComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, FontAwesomeModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule,ReactiveFormsModule, FontAwesomeModule],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
