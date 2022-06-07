@@ -1,10 +1,11 @@
+import { Produto } from 'src/app/pages/produtos/Produto';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 import { HttpClient } from '@angular/common/http';
 
-import { Produto } from '../Produto';
+
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,10 @@ export class ProdutosService {
 
   constructor(private http:HttpClient) { }
 
-criarProduto(produto:Produto):Observable<Produto>{
-return this.http.post<Produto>(this.apiUrl, produto)
+
+criarProduto(produto:Produto){
+return localStorage.setItem(produto.no_produto, JSON.stringify(produto))
+
 }
 
 
@@ -31,9 +34,7 @@ editarProduto(id:number,produto:Produto ):Observable<Produto>{
   return this.http.put<Produto>(url,produto)
 }
 
-  getTodos():Observable<Produto[]>{
-return this.http.get<Produto[]>(this.apiUrl)
-  }
+
 
   getProduto(id:number):Observable<Produto>{
     const url=`${this.apiUrl}/${id}`

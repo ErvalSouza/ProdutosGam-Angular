@@ -1,25 +1,28 @@
 <h2>Cadastar Novo Produto</h2>
 
-
-<form (ngSubmit)="cadastrar()">
+<form #form="ngForm">
   <div class="form-row mt-2">
     <div class="col">
       <input
         type="text"
         class="form-control"
         placeholder="Nome do Produto"
-        [(ngModel)]="no_produto"
-        name="nomeProduto"
+        [(ngModel)]="produto.no_produto"
+        name="no_produto"
       />
     </div>
 
     <div class="col mt-2">
       <input
-        type="number"
+        type="text"
+        prefix="R$" mask="separator.2" thousandSeparator=","
         class="form-control"
         placeholder="Valor"
-        [(ngModel)]="nm_valor"
-        name="valor"
+        formControlName="mascaraPreco"
+        [(ngModel)]="produto.nm_valor"
+
+        name="nm_valor"
+
       />
     </div>
 
@@ -28,8 +31,8 @@
         type="number"
         class="form-control"
         placeholder="Código de barras"
-        [(ngModel)]="cd_ean"
-        name="codigoBarras"
+        [(ngModel)]="produto.cd_ean"
+        name="cd_ean"
       />
     </div>
     <div class="col mt-2">
@@ -37,14 +40,14 @@
         type="number"
         class="form-control"
         placeholder="Quantidade"
-        [(ngModel)]="nm_quantidade"
-        name="quantidade"
+        [(ngModel)]="produto.nm_quantidade"
+        name="nm_quantidade"
       />
     </div>
   </div>
 
   <div>
-    <button class="btn btn-outline-secondary mt-3" type="submit">
+    <button class="btn btn-outline-secondary mt-3" type="submit" (click)="cadastrar(form)">
       Cadastrar
     </button>
   </div>

@@ -37,16 +37,7 @@ produtoForm!:FormGroup
     })
   }
 
-  // get no_produto(){
-  //   return this.produtoForm.get('no_produto')!
-  // }
-  // get nm_valor(){
-  //   return this.produtoForm.get('nm_valor')!
-  // } get cd_ean(){
-  //   return this.produtoForm.get('cd_ean')
-  // } get nm_quantidade(){
-  //   return this.produtoForm.get('nm_quantidade')!
-  // }
+
 
 
   submit(){

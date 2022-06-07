@@ -1,7 +1,9 @@
+import { FormControl, NgForm } from '@angular/forms';
 import { ProdutosService } from '../produtos/services/produtos.service';
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { MensagemService } from 'src/app/components/mensagem.service';
+import { Produto } from '../produtos/Produto';
 
 @Component({
   selector: 'app-novo-produto',
@@ -9,35 +11,42 @@ import { MensagemService } from 'src/app/components/mensagem.service';
   styleUrls: ['./novo-produto.component.css'],
 })
 export class NovoProdutoComponent implements OnInit {
+  produto!: Produto;
 
-  id:number=0
-  no_produto: string = '';
-  nm_valor: string = '';
-  cd_ean: string = '';
-  nm_quantidade: string = '';
+  // id: number = 0;
+  // no_produto: string = '';
+  // nm_valor: string = '';
+  // cd_ean: string = '';
+  // nm_quantidade: string = '';
 
   constructor(
     private produtosService: ProdutosService,
     private router: Router,
-    private mensagemService:MensagemService
+    private mensagemService: MensagemService
   ) {}
 
-  cadastrar() {
-    console.log('cadastrou');
-
-    const produtoEmitir = {
-      id:this.id,
-      no_produto: this.no_produto,
-      nm_valor: this.nm_valor,
-      cd_ean: this.cd_ean,
-      nm_quantidade: this.nm_quantidade,
-    };
-    this.produtosService.criarProduto(produtoEmitir).subscribe((resultado) => {
-      console.log(resultado);
-this.mensagemService.add("Produto cadastrado com sucesso")
-      this.router.navigateByUrl('produtos');
-
-    });
+  ngOnInit(): void {
+    this.produto= new Produto()
   }
-  ngOnInit(): void {}
+
+  cadastrar(form:NgForm){
+if(form.valid){
+  this.produtosService.criarProduto(this.produto);
+  this.mensagemService.add("Produto cadastrado com Sucesso");
+  this.router.navigateByUrl("produtos")
+}
+  }
+
+  // cadastrar() {
+  //   console.log('cadastrou');
+
+  //   this.produtosService.criarProduto(this.produto).subscribe((resultado) => {
+  //     console.log(resultado);
+  //     this.mensagemService.add('Produto cadastrado com sucesso');
+  //     this.produto = {};
+  //     this.router.navigateByUrl('produtos');
+  //   });
+  // }
+
+
 }

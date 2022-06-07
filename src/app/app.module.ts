@@ -18,6 +18,9 @@ import { EditProdutoComponent } from './components/edit-produto/edit-produto.com
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProdutoFormComponent } from './components/produto-form/produto-form.component';
 
+import { NgxMaskModule,IConfig  } from 'ngx-mask';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +32,19 @@ import { ProdutoFormComponent } from './components/produto-form/produto-form.com
     EditProdutoComponent,
     ProdutoFormComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule,ReactiveFormsModule, FontAwesomeModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FontAwesomeModule,
+    NgxMaskModule.forRoot({
+      dropSpecialCharacters:false
+    })
+
+
+  ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' },
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },

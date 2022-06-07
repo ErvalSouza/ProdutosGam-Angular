@@ -15,6 +15,17 @@ import { faTimes, faEdit } from '@fortawesome/free-solid-svg-icons';
 export class ProdutosComponent implements OnInit {
   produtos: Produto[] = [];
 
+  produto: Produto= {
+    id: 0,
+    no_produto: '',
+    cd_ean: '',
+    nm_valor: '',
+    nm_quantidade: ''
+  }
+
+  component: boolean= true
+  label:string= "Novo Produto"
+
   faTimes = faTimes;
   faEdit = faEdit;
 
@@ -24,20 +35,49 @@ export class ProdutosComponent implements OnInit {
     private route: ActivatedRoute,
     private mensageService:MensagemService
   ) {
-    this.getTodosProdutos();
+    // this.getTodosProdutos();
   }
 
-  ngOnInit(): void {}
-
-  getTodosProdutos() {
-    this.produtosService
-      .getTodos()
-      .subscribe((produtos) => (this.produtos = produtos));
+  ngOnInit(): void {
+this.exibirProdutos(this.produto)
   }
+
+exibirProdutos(produto:Produto): void {
+  if(localStorage.getItem(produto.no_produto)){
+this.produtos=JSON.parse(localStorage.getItem(produto.no_produto)!)
+  }
+}
+
+//   getTodosProdutos() {
+//     this.produtosService
+//       .getTodos()
+//       .subscribe((produtos) => (this.produtos = produtos));
+//   }
 
   async excluirProduto(id: number) {
    await this.produtosService.deletarProduto(id).subscribe();
 this.mensageService.add("Produto Excluido com Sucesso")
     this.router.navigateByUrl('');
+  }
+
+
+
+
+  alterarComponent(){
+    this.component= !this.component
+    this.alteraButao()
+  }
+
+  alteraButao(){
+    if(this.component ){
+      this.label= "Novo Cadastro"
+    }else{
+      this.label= "Voltar"
+    }
+  }
+  edit(produto:Produto){
+this.produto= produto
+this.component= !this.component
+this.alteraButao()
   }
 }
