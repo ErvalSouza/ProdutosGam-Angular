@@ -1,6 +1,6 @@
 <h2>Cadastar Novo Produto</h2>
 
-<form #form="ngForm">
+<form #form="ngForm" >
   <div class="form-row mt-2">
     <div class="col">
       <input
@@ -18,9 +18,7 @@
         prefix="R$" mask="separator.2" thousandSeparator=","
         class="form-control"
         placeholder="Valor"
-        formControlName="mascaraPreco"
         [(ngModel)]="produto.nm_valor"
-
         name="nm_valor"
 
       />
@@ -32,6 +30,7 @@
         class="form-control"
         placeholder="Código de barras"
         [(ngModel)]="produto.cd_ean"
+
         name="cd_ean"
       />
     </div>
@@ -47,8 +46,11 @@
   </div>
 
   <div>
-    <button class="btn btn-outline-secondary mt-3" type="submit" (click)="cadastrar(form)">
+    <button class="btn btn-outline-secondary mt-3" type="submit" (click)="cadastrar()">
       Cadastrar
     </button>
   </div>
 </form>
+
+
+

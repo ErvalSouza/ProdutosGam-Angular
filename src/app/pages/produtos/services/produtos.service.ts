@@ -18,12 +18,6 @@ export class ProdutosService {
   constructor(private http:HttpClient) { }
 
 
-criarProduto(produto:Produto){
-return localStorage.setItem(produto.no_produto, JSON.stringify(produto))
-
-}
-
-
 deletarProduto(id:number){
 const url=`${this.apiUrl}/${id}`
 return this.http.delete(url)

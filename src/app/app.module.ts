@@ -18,6 +18,7 @@ import { EditProdutoComponent } from './components/edit-produto/edit-produto.com
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProdutoFormComponent } from './components/produto-form/produto-form.component';
 
+import { ProdutosService } from './pages/produtos/services/produtos.service';
 import { NgxMaskModule,IConfig  } from 'ngx-mask';
 
 
